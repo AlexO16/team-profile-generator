@@ -57,22 +57,22 @@ function managerData() {
 
 function engineerData() {
     return inquirer
-        .prompt([    
+        .prompt([
             {
-            type: 'input',
-            message: "What is the engineer's name?",
-            name: 'name',
-        },
-        {
-            type: 'input',
-            message: "What is the engineer's ID?",
-            name: 'id',
-        },
-        {
-            type: 'input',
-            message: 'What is the email address?',
-            name: 'email',
-        },
+                type: 'input',
+                message: "What is the engineer's name?",
+                name: 'name',
+            },
+            {
+                type: 'input',
+                message: "What is the engineer's ID?",
+                name: 'id',
+            },
+            {
+                type: 'input',
+                message: 'What is the email address?',
+                name: 'email',
+            },
 
             {
                 type: 'input',
@@ -109,7 +109,7 @@ function internData() {
 }
 
 async function addTeamMember() {
-    return inquirer.prompt([ 
+    return inquirer.prompt([
         {
             type: 'confirm',
             message: 'Add another employee?',
@@ -122,22 +122,22 @@ async function init() {
 
     let addEmployee = true
 
-    while(addEmployee) {
-    let data = await employeeData()
+    while (addEmployee) {
+        let data = await employeeData()
 
-    if(data.employeeType === 'manager') {
-        await managerData()
-    } else if(data.employeeType === 'engineer') {
-        await engineerData()
-    } else {
-        await internData()
-    }
+        if (data.employeeType === 'manager') {
+            await managerData()
+        } else if (data.employeeType === 'engineer') {
+            await engineerData()
+        } else {
+            await internData()
+        }
 
-    let answer = await addTeamMember()
-    if(!answer.confirm) {
-        addEmployee = false
+        let answer = await addTeamMember()
+        if (!answer.confirm) {
+            addEmployee = false
+        }
     }
-    } 
 }
 
 init()
