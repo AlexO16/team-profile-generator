@@ -24,33 +24,120 @@ async function employeeData() {
                 type: 'list',
                 message: ' what type of employee?',
                 name: 'employeeType',
-                choices: ['manager', 'engineer', 'intern'],
+                choices: ['Manager', 'Engineer', 'Intern'],
             },
+        ])
+}
+
+function managerData() {
+    return inquirer
+        .prompt([
             {
                 type: 'input',
-                message: 'What is the employee name?',
+                message: "What is the manager's name?",
                 name: 'name',
             },
             {
                 type: 'input',
-                message: 'What is the employee ID?',
-                name: 'employeeID',
+                message: "What is the manager's ID?",
+                name: 'id',
             },
             {
                 type: 'input',
                 message: 'What is the email address?',
                 name: 'email',
             },
-
+            {
+                type: 'input',
+                message: 'What is the office number?',
+                name: 'office',
+            },
         ])
 }
 
-async function init() {
-let data = await employeeData()
+function engineerData() {
+    return inquirer
+        .prompt([    
+            {
+            type: 'input',
+            message: "What is the engineer's name?",
+            name: 'name',
+        },
+        {
+            type: 'input',
+            message: "What is the engineer's ID?",
+            name: 'id',
+        },
+        {
+            type: 'input',
+            message: 'What is the email address?',
+            name: 'email',
+        },
 
-if(data.employeeType === "manager") {
-    
+            {
+                type: 'input',
+                message: 'What is the GitHub username?',
+                name: 'github',
+            },
+        ])
 }
+
+function internData() {
+    return inquirer
+        .prompt([
+            {
+                type: 'input',
+                message: "What is the interns's name?",
+                name: 'name',
+            },
+            {
+                type: 'input',
+                message: "What is the interns's ID?",
+                name: 'id',
+            },
+            {
+                type: 'input',
+                message: 'What is the email address?',
+                name: 'email',
+            },
+            {
+                type: 'input',
+                message: 'What school did the intern attend?',
+                name: 'school',
+            }
+        ])
+}
+
+async function addTeamMember() {
+    return inquirer.prompt([ 
+        {
+            type: 'confirm',
+            message: 'Add another employee?',
+            name: 'confirm',
+        }
+    ])
+}
+
+async function init() {
+
+    let addEmployee = true
+
+    while(addEmployee) {
+    let data = await employeeData()
+
+    if(data.employeeType === 'manager') {
+        await managerData()
+    } else if(data.employeeType === 'engineer') {
+        await engineerData()
+    } else {
+        await internData()
+    }
+
+    let answer = await addTeamMember()
+    if(!answer.confirm) {
+        addEmployee = false
+    }
+    } 
 }
 
 init()
