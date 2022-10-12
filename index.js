@@ -1,16 +1,19 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const htmlData = require('./dist/htmldata')
-const Employee = require('./lib/employee')
-const Engineer = require('./lib/engineer')
-const Intern = require('./lib/intern')
-const Manager = require('./lib/manager')
+const htmlData = require('./dist/htmldata');
+const Employee = require('./lib/employee');
+const Engineer = require('./lib/engineer');
+const Intern = require('./lib/intern');
+const Manager = require('./lib/manager');
+
+const empArr = [];
 
 
-// function writeToFile(data) {
-//     fs.writeFile('index.html', data, (err)=>
-//     err ? console.log("error") : console.log('HTML created!'))
-//     }
+function writeToFile(empArr) {
+    const data = htmlData(empArr)
+    fs.writeFile('index.html', data, (err)=>
+    err ? console.log("error") : console.log('HTML created!'))
+    }
 
 //employee = name, ID, email
 //Team manager = name, ID, email, office#
@@ -27,8 +30,8 @@ async function employeeData() {
                 choices: ['Manager', 'Engineer', 'Intern'],
             },
         ])
-}
 
+    }
 function managerData() {
     return inquirer
         .prompt([
@@ -113,31 +116,36 @@ async function addTeamMember() {
         {
             type: 'confirm',
             message: 'Add another employee?',
-            name: 'confirm',
+            name: 'addTeamMember',
         }
     ])
 }
 
+
 async function init() {
 
     let addEmployee = true
-
+   
     while (addEmployee) {
         let data = await employeeData()
-
-        if (data.employeeType === 'manager') {
-            await managerData()
-        } else if (data.employeeType === 'engineer') {
-            await engineerData()
+        
+        if (data.employeeType === 'Manager') {
+          const {name, id, email, office} = await managerData()
+        return empArr.push(new Manager(name, id, email, office))
+        } else if (data.employeeType === 'Engineer') {
+          const {name, id, email, github} = await engineerData()
+        return empArr.push(new Engineer(name, id, email, github))
         } else {
-            await internData()
+          const {name, id, email, school} = await internData()
+        return empArr.push(new Intern(name, id, email, school))
         }
-
         let answer = await addTeamMember()
-        if (!answer.confirm) {
-            addEmployee = false
-        }
+    if (!answer.addTeamMember) {
+        addEmployee = false
     }
+    }
+    
+    writeToFile(empArr)
 }
 
 init()
