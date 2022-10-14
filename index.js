@@ -1,7 +1,6 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const htmlData = require('./dist/htmldata');
-const Employee = require('./lib/employee');
 const Engineer = require('./lib/engineer');
 const Intern = require('./lib/intern');
 const Manager = require('./lib/manager');
@@ -14,11 +13,6 @@ function writeToFile(empArr) {
     fs.writeFile('index.html', data, (err)=>
     err ? console.log("error") : console.log('HTML created!'))
     }
-
-//employee = name, ID, email
-//Team manager = name, ID, email, office#
-//engineer = name, ID, email, github
-//intern = name, ID, emil, school
 
 async function employeeData() {
     return inquirer
@@ -128,16 +122,15 @@ async function init() {
    
     while (addEmployee) {
         let data = await employeeData()
-        
         if (data.employeeType === 'Manager') {
           const {name, id, email, office} = await managerData()
-        return empArr.push(new Manager(name, id, email, office))
+        empArr.push(new Manager(name, id, email, office))
         } else if (data.employeeType === 'Engineer') {
           const {name, id, email, github} = await engineerData()
-        return empArr.push(new Engineer(name, id, email, github))
+         empArr.push(new Engineer(name, id, email, github))
         } else {
           const {name, id, email, school} = await internData()
-        return empArr.push(new Intern(name, id, email, school))
+        empArr.push(new Intern(name, id, email, school))
         }
         let answer = await addTeamMember()
     if (!answer.addTeamMember) {

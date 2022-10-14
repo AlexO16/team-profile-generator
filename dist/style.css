@@ -1,6 +1,8 @@
 .header {
     background-color: beige;
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     height: 80px;
 }
