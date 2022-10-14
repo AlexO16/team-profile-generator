@@ -34,7 +34,7 @@ function htmlData(empArr) {
        </div>
        <ul class="list-group list-group-flush">
          <li class="list-group-item">ID: ${empArr[i].id}</li>
-         <li class="list-group-item"> Email: <a href = mailto${empArr[i].email}> ${empArr[i].email}</a></li> 
+         <li class="list-group-item"> Email: <a href = "mailto:${empArr[i].email}"> ${empArr[i].email}</a></li> 
          ${info}
        </ul>
      </div>`
