@@ -13,6 +13,7 @@ This application was created to generate a dynamic webpage that displays an empl
 * [Credits](#credits)
 
 # Screenshot
+![Screen Shot 2022-10-13 at 9 42 51 PM](https://user-images.githubusercontent.com/110851664/195750117-33c5ecc1-f712-4091-a537-d31d72b76e21.png)
 
 
 # Installation
