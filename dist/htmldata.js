@@ -17,7 +17,7 @@ function htmlData(empArr) {
             icon += `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eyeglasses" viewBox="0 0 16 16">
             <path d="M4 6a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm2.625.547a3 3 0 0 0-5.584.953H.5a.5.5 0 0 0 0 1h.541A3 3 0 0 0 7 8a1 1 0 0 1 2 0 3 3 0 0 0 5.959.5h.541a.5.5 0 0 0 0-1h-.541a3 3 0 0 0-5.584-.953A1.993 1.993 0 0 0 8 6c-.532 0-1.016.208-1.375.547zM14 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0z"/>
           </svg>`
-          info += `<li class="list-group-item">GitHub: ${empArr[i].github}</li>`
+          info += `<li class="list-group-item"> GitHub: <a href="https://github.com/${empArr[i].github}"> ${empArr[i].github}</a></li>`
         } else if (role === 'intern') {
             icon += `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-mortarboard" viewBox="0 0 16 16">
             <path d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917l-7.5-3.5ZM8 8.46 1.758 5.965 8 3.052l6.242 2.913L8 8.46Z"/>
@@ -34,7 +34,7 @@ function htmlData(empArr) {
        </div>
        <ul class="list-group list-group-flush">
          <li class="list-group-item">ID: ${empArr[i].id}</li>
-         <li class="list-group-item">Email: ${empArr[i].email}</li> 
+         <li class="list-group-item"> Email: <a href = mailto${empArr[i].email}> ${empArr[i].email}</a></li> 
          ${info}
        </ul>
      </div>`
