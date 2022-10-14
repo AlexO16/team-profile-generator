@@ -13,6 +13,7 @@ This application was created to generate a dynamic webpage that displays an empl
 * [Credits](#credits)
 
 # Screenshot
+![Screen Shot 2022-10-13 at 9 42 51 PM](https://user-images.githubusercontent.com/110851664/195750117-33c5ecc1-f712-4091-a537-d31d72b76e21.png)
 
 
 # Installation
@@ -32,7 +33,7 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 # Links
-
+* [Demo Video](https://drive.google.com/file/d/1MfvIQnh-KRnF9Hdkka1d07svWUAp_med/view)
 * [Repository](https://github.com/AlexO16/team-profile-generator/tree/main)
 
 # Credits
